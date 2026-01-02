@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <title>Monte Carlo procjena površine nacrtanog oblika</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <h1>Monte Carlo procjena površine nacrtanog 2D oblika</h1>
+
+  <div class="wrapper">
+    <div class="left">
+      <canvas id="canvas" width="700" height="500"></canvas>
+
+      <div class="hint">
+        <p>
+          1️⃣ Pritisni i drži lijevi klik u canvasa i nacrtaj zatvorenu krivu (neka ti posljednja tačka bude blizu prve).<br>
+          2️⃣ Klikni <span class="code">Zatvori oblik</span> kad završiš crtanje.<br>
+          3️⃣ Odaberi broj tačaka i klikni <span class="code">Pokreni Monte Carlo</span>.
+        </p>
+      </div>
+
+      <div class="controls">
+        <button id="btnCloseShape" disabled>🔒 Zatvori oblik</button>
+
+        <span class="label">Broj Monte Carlo tačaka:</span>
+        <input type="number" id="mcPoints" value="5000" min="1" step="1" />
+
+        <button id="btnRunMC" disabled>🎲 Pokreni Monte Carlo</button>
+        
+        <button id="btnDownloadCSV" class="secondary">💾 Sačuvaj CSV</button>
+
+        <button id="btnClear" class="danger">🧹 Resetuj sve</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <div>
+        <div class="pill">Tačna površina: <span id="exactArea">–</span></div>
+        <div class="pill">Monte Carlo površina: <span id="mcArea">–</span></div>
+        <div class="pill">Apsolutna greška: <span id="absError">–</span></div>
+        <div class="pill">Relativna greška: <span id="relError">–</span></div>
+      </div>
+
+      <div class="results" id="log">
+        <p><strong>Log:</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
